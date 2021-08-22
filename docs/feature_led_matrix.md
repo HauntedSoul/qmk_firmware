@@ -52,7 +52,7 @@ Here is an example using 2 drivers.
 Define these arrays listing all the LEDs in your `<keyboard>.c`:
 
 ```c
-const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
+const is31_led __flash g_is31_leds[DRIVER_LED_TOTAL] = {
 /* Refer to IS31 manual for these locations
  *    driver
  *    |  LED address
@@ -63,7 +63,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
 }
 ```
 
-Where `Cx_y` is the location of the LED in the matrix defined by [the datasheet](https://www.issi.com/WW/pdf/31FL3731.pdf) and the header file `drivers/issi/is31fl3731-simple.h`. The `driver` is the index of the driver you defined in your `config.h` (`0`, `1`, `2`, or `3` ).
+Where `Cx_y` is the location of the LED in the matrix defined by [the datasheet](https://www.issi.com/WW/pdf/31FL3731.pdf) and the header file `drivers/led/issi/is31fl3731-simple.h`. The `driver` is the index of the driver you defined in your `config.h` (`0`, `1`, `2`, or `3` ).
 
 ---
 
@@ -164,26 +164,26 @@ You can disable a single effect by defining `DISABLE_[EFFECT_NAME]` in your `con
 
 |Define                                                 |Description                                    |
 |-------------------------------------------------------|-----------------------------------------------|
-|`#define DISABLE_LED_MATRIX_ALPHAS_MODS`               |Disables `LED_MATRIX_ALPHAS_MODS`              |
-|`#define DISABLE_LED_MATRIX_BREATHING`                 |Disables `LED_MATRIX_BREATHING`                |
-|`#define DISABLE_LED_MATRIX_BAND`                      |Disables `LED_MATRIX_BAND`                     |
-|`#define DISABLE_LED_MATRIX_BAND_PINWHEEL`             |Disables `LED_MATRIX_BAND_PINWHEEL`            |
-|`#define DISABLE_LED_MATRIX_BAND_SPIRAL`               |Disables `LED_MATRIX_BAND_SPIRAL`              |
-|`#define DISABLE_LED_MATRIX_CYCLE_LEFT_RIGHT`          |Disables `LED_MATRIX_CYCLE_LEFT_RIGHT`         |
-|`#define DISABLE_LED_MATRIX_CYCLE_UP_DOWN`             |Disables `LED_MATRIX_CYCLE_UP_DOWN`            |
-|`#define DISABLE_LED_MATRIX_CYCLE_OUT_IN`              |Disables `LED_MATRIX_CYCLE_OUT_IN`             |
-|`#define DISABLE_LED_MATRIX_DUAL_BEACON`               |Disables `LED_MATRIX_DUAL_BEACON`              |
-|`#define DISABLE_LED_MATRIX_SOLID_REACTIVE_SIMPLE`     |Disables `LED_MATRIX_SOLID_REACTIVE_SIMPLE`    |
-|`#define DISABLE_LED_MATRIX_SOLID_REACTIVE_WIDE`       |Disables `LED_MATRIX_SOLID_REACTIVE_WIDE`      |
-|`#define DISABLE_LED_MATRIX_SOLID_REACTIVE_MULTIWIDE`  |Disables `LED_MATRIX_SOLID_REACTIVE_MULTIWIDE` |
-|`#define DISABLE_LED_MATRIX_SOLID_REACTIVE_CROSS`      |Disables `LED_MATRIX_SOLID_REACTIVE_CROSS`     |
-|`#define DISABLE_LED_MATRIX_SOLID_REACTIVE_MULTICROSS` |Disables `LED_MATRIX_SOLID_REACTIVE_MULTICROSS`|
-|`#define DISABLE_LED_MATRIX_SOLID_REACTIVE_NEXUS`      |Disables `LED_MATRIX_SOLID_REACTIVE_NEXUS`     |
-|`#define DISABLE_LED_MATRIX_SOLID_REACTIVE_MULTINEXUS` |Disables `LED_MATRIX_SOLID_REACTIVE_MULTINEXUS`|
-|`#define DISABLE_LED_MATRIX_SOLID_SPLASH`              |Disables `LED_MATRIX_SOLID_SPLASH`             |
-|`#define DISABLE_LED_MATRIX_SOLID_MULTISPLASH`         |Disables `LED_MATRIX_SOLID_MULTISPLASH`        |
-|`#define DISABLE_LED_MATRIX_WAVE_LEFT_RIGHT`           |Disables `LED_MATRIX_WAVE_LEFT_RIGHT`          |
-|`#define DISABLE_LED_MATRIX_WAVE_UP_DOWN`              |Disables `LED_MATRIX_WAVE_UP_DOWN`             |
+|`#define ENABLE_LED_MATRIX_ALPHAS_MODS`                |Enables `LED_MATRIX_ALPHAS_MODS`              |
+|`#define ENABLE_LED_MATRIX_BREATHING`                  |Enables `LED_MATRIX_BREATHING`                |
+|`#define ENABLE_LED_MATRIX_BAND`                       |Enables `LED_MATRIX_BAND`                     |
+|`#define ENABLE_LED_MATRIX_BAND_PINWHEEL`              |Enables `LED_MATRIX_BAND_PINWHEEL`            |
+|`#define ENABLE_LED_MATRIX_BAND_SPIRAL`                |Enables `LED_MATRIX_BAND_SPIRAL`              |
+|`#define ENABLE_LED_MATRIX_CYCLE_LEFT_RIGHT`           |Enables `LED_MATRIX_CYCLE_LEFT_RIGHT`         |
+|`#define ENABLE_LED_MATRIX_CYCLE_UP_DOWN`              |Enables `LED_MATRIX_CYCLE_UP_DOWN`            |
+|`#define ENABLE_LED_MATRIX_CYCLE_OUT_IN`               |Enables `LED_MATRIX_CYCLE_OUT_IN`             |
+|`#define ENABLE_LED_MATRIX_DUAL_BEACON`                |Enables `LED_MATRIX_DUAL_BEACON`              |
+|`#define ENABLE_LED_MATRIX_SOLID_REACTIVE_SIMPLE`      |Enables `LED_MATRIX_SOLID_REACTIVE_SIMPLE`    |
+|`#define ENABLE_LED_MATRIX_SOLID_REACTIVE_WIDE`        |Enables `LED_MATRIX_SOLID_REACTIVE_WIDE`      |
+|`#define ENABLE_LED_MATRIX_SOLID_REACTIVE_MULTIWIDE`   |Enables `LED_MATRIX_SOLID_REACTIVE_MULTIWIDE` |
+|`#define ENABLE_LED_MATRIX_SOLID_REACTIVE_CROSS`       |Enables `LED_MATRIX_SOLID_REACTIVE_CROSS`     |
+|`#define ENABLE_LED_MATRIX_SOLID_REACTIVE_MULTICROSS`  |Enables `LED_MATRIX_SOLID_REACTIVE_MULTICROSS`|
+|`#define ENABLE_LED_MATRIX_SOLID_REACTIVE_NEXUS`       |Enables `LED_MATRIX_SOLID_REACTIVE_NEXUS`     |
+|`#define ENABLE_LED_MATRIX_SOLID_REACTIVE_MULTINEXUS`  |Enables `LED_MATRIX_SOLID_REACTIVE_MULTINEXUS`|
+|`#define ENABLE_LED_MATRIX_SOLID_SPLASH`               |Enables `LED_MATRIX_SOLID_SPLASH`             |
+|`#define ENABLE_LED_MATRIX_SOLID_MULTISPLASH`          |Enables `LED_MATRIX_SOLID_MULTISPLASH`        |
+|`#define ENABLE_LED_MATRIX_WAVE_LEFT_RIGHT`            |Enables `LED_MATRIX_WAVE_LEFT_RIGHT`          |
+|`#define ENABLE_LED_MATRIX_WAVE_UP_DOWN`               |Enables `LED_MATRIX_WAVE_UP_DOWN`             |
 
 ## Custom LED Matrix Effects :id=custom-led-matrix-effects
 
