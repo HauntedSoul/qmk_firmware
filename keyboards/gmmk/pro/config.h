@@ -72,3 +72,6 @@
 
 /* Set debounce time to 5ms */
 #define DEBOUNCE 5
+
+// Sleep
+#define RGBLIGHT_SLEEP
